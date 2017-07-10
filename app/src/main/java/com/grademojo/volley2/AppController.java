@@ -49,8 +49,8 @@ public class AppController extends Application {
         return this.mImageLoader;
     }
 
-    public <T> void addToRequestQueue(Request<T> req, String tag) {
-        req.setTag(TextUtils.isEmpty(tag) ? TAG : req);
+    public <T> void addToRequestQueue(Request<T> req, Object tag) {
+        req.setTag(tag == null ? TAG : tag);
         getRequestQueue().add(req);
 
 
