@@ -5,7 +5,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.util.Log;
 
-
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
@@ -27,4 +27,26 @@ public class AppController extends Application {
         mInstance = this;
     }
 
-//
+    public static synchronized AppController getInstance() {
+        return mInstance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
+        return mRequestQueue;
+    }
+
+    public ImageLoader getImageLoader() {
+
+
+        getRequestQueue();
+        if (mImageLoader == null) {
+            mImageLoader = new ImageLoader(this.mRequestQueue,
+                    new LruBitmapCache());
+        }
+        return this.mImageLoader;
+    }
+
