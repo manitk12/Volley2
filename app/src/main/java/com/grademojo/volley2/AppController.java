@@ -9,7 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.grademojo.volley.LruBitmapCache;
+
 
 public class AppController extends Application {
 
@@ -44,8 +44,7 @@ public class AppController extends Application {
 
         getRequestQueue();
         if (mImageLoader == null) {
-            mImageLoader = new ImageLoader(this.mRequestQueue,
-                    new LruBitmapCache());
+            mImageLoader = new ImageLoader(this.mRequestQueue,new LruBitmapCache());
         }
         return this.mImageLoader;
     }
