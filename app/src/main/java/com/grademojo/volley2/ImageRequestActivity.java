@@ -12,7 +12,7 @@ import com.android.volley.Cache;
 import com.android.volley.Cache.Entry;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.grademojo.volley.Common.AppController;
+import com.grademojo.volley2.AppController;
 
 import java.io.UnsupportedEncodingException;
 

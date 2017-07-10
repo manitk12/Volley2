@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grademojo.volley2.ImageRequestActivity">
+    android:orientation="vertical" >
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnImageReq"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_image" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imgNetwork"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitXY" >
+    </com.android.volley.toolbox.NetworkImageView>
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter" >
+    </ImageView>
+
+</LinearLayout>
