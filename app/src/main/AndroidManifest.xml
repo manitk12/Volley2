@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".StringRequestActivity" />
-        <activity android:name=".JsonRequestActivity"></activity>
+        <activity android:name=".JsonRequestActivity" />
+        <activity android:name=".ImageRequestActivity"></activity>
     </application>
 
 </manifest>
