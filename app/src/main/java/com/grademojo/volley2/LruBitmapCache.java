@@ -3,8 +3,7 @@ package com.grademojo.volley2;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
-
-
+import com.android.volley.toolbox.ImageLoader;
 
 
 public class LruBitmapCache extends LruCache<String, Bitmap> implements

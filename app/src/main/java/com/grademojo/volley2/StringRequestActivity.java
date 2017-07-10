@@ -3,9 +3,16 @@ package com.grademojo.volley2;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
 
 public class StringRequestActivity extends AppCompatActivity {
     private String TAG = StringRequestActivity.class.getSimpleName();
@@ -46,6 +53,31 @@ public class StringRequestActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.hide();
     }
+    private void makeStringReq() {
+        showProgressDialog();
 
+        StringRequest strReq = new StringRequest(Request.Method.GET,
+                Const.URL_STRING_REQ, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, response.toString());
+                msgResponse.setText(response.toString());
+                hideProgressDialog();
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                hideProgressDialog();
+            }
+        });
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+
+    }
 }
 
